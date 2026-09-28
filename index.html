@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WAVEX-STUDIO</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+        body { background-color: #18191c; color: #e1e2e6; font-family: sans-serif; overflow: hidden; height: 100vh; }
+        .transport-bar { display: flex; align-items: center; justify-content: space-between; height: 50px; background: #232429; padding: 0 15px; border-bottom: 2px solid #111215; }
+        .logo { font-weight: 800; font-size: 18px; letter-spacing: 2px; color: #ff8c00; }
+        .btn-group { display: flex; gap: 8px; }
+        button { background: #2f313a; border: 1px solid #434753; color: #e1e2e6; padding: 8px 16px; font-weight: 600; border-radius: 4px; }
+        button.active-play { background: #2e7d32; border-color: #4caf50; }
+        .studio-container { display: flex; flex-direction: column; height: calc(100vh - 50px); }
+        .timeline-grid { flex: 1; padding: 15px; background: #1c1d22; }
+        .track-lane { display: flex; align-items: center; background: rgba(35, 36, 41, 0.6); height: 55px; margin-bottom: 8px; border-radius: 6px; border-left: 5px solid #ff8c00; padding: 0 10px; }
+        .track-meta { width: 80px; font-weight: bold; font-size: 12px; color: #8a8d98; }
+        .step-block { display: flex; gap: 5px; flex: 1; }
+        .node { width: 45px; height: 35px; background: #2f313a; border-radius: 4px; border: 1px solid #1c1d22; }
+        .node.selected { background: #ff8c00; }
+        .node.current-hit { border: 2px solid #ffffff; }
+    </style>
+</head>
+<body>
+    <div class="transport-bar">
+        <div class="logo">WAVEX</div>
+        <div class="btn-group">
+            <button id="master-engine-btn">🎛️ Boot Engine</button>
+            <button id="playback-trigger">▶ Play</button>
+        </div>
+        <div style="font-size: 13px; color: #8a8d98; font-weight: bold;">BPM: 125</div>
+    </div>
+    <div class="studio-container">
+        <div class="timeline-grid">
+            <div class="track-lane" data-instrument="kick">
+                <div class="track-meta">KICK</div>
+                <div class="step-block">
+                    <div class="node" data-index="0"></div><div class="node" data-index="1"></div>
+                    <div class="node" data-index="2"></div><div class="node" data-index="3"></div>
+                </div>
+            </div>
+            <div class="track-lane" data-instrument="hihat">
+                <div class="track-meta">HIHAT</div>
+                <div class="step-block">
+                    <div class="node" data-index="0"></div><div class="node" data-index="1"></div>
+                    <div class="node" data-index="2"></div><div class="node" data-index="3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
